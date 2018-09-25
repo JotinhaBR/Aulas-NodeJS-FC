@@ -1,10 +1,17 @@
-var mongoose = require('mongoose');
-process.env.PORT = process.env.PORT || 27017;
+const mongoose = require('mongoose');
+const dbOption = {
+    useNewUrlParser: true,
+    socketTimeoutMS: 30000,
+    keepAlive: true,
+    reconnectTries: 30000
+};
 
-var uri = process.env.MONGODB_URL || `mongodb://localhost:${process.env.PORT}/test`;
-var connect = mongoose.connect(uri,  { useNewUrlParser: true } )
-.then(app => app.listen(process.env.PORT , () => console.log(`Banco de dados ligado na porta: ${process.env.PORT }`)))
-.catch(error => {
-  console.error(error);
+const dbPort = 27017;
+const dbUrl = 'mongodb://localhost:'+dbPort+'/db';
+
+mongoose.connect(dbUrl, dbOption).then(function(){
+  console.log('Banco de dados ligado na porta: '+dbPort);
+}, function(err) {
+  console.error(err);
   process.exit(1);
 });
