@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 export class UserService {
   constructor(private http: HttpClient) {}
 
-  postUser(user): Observable<any> {
+  createUser(user): Observable<any> {
     return this.http.post('http://localhost:3000/user/create', user);
   }
 

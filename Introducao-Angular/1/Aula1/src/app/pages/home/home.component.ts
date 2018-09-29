@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from './home.service';
+import { UserService } from '../user/user.service';
 
 @Component({
   selector: 'app-home',
@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
   test(){
     this.User.nome = this.name
 
-    this.userService.postUser(this.User).subscribe(res => {
+    this.userService.createUser(this.User).subscribe(res => {
       console.log(res);
     });
   }

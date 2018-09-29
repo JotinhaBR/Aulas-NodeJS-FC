@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'navbar-up',
+  selector: 'itens-navbar-up',
   templateUrl: './up.component.html',
   styleUrls: ['./up.component.css']
 })

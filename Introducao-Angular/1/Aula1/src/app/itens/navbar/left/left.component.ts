@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'navbar-left',
+  selector: 'itens-navbar-left',
   templateUrl: './left.component.html',
   styleUrls: ['./left.component.css']
 })
