@@ -6,8 +6,16 @@ import { Observable } from 'rxjs';
 export class UserService {
   constructor(private http: HttpClient) {}
 
-  createUser(user): Observable<any> {
-    return this.http.post('http://localhost:3000/user/create', user);
+  createUser(json): Observable<any> {
+    return this.http.post('http://localhost:3000/user/create', json);
+  }
+
+  buscarUser(json): Observable<any> {
+    return this.http.post('http://localhost:3000/user/buscar', json);
+  }
+
+  deleteUser(json): Observable<any> {
+   return this.http.delete('http://localhost:3000/user/deletar', json);
   }
 
   // getCat(name: string): Observable<any> {

@@ -15,6 +15,7 @@ export class CreateComponent implements OnInit {
   fnome: string;
   femail: string;
   fsenha: string;
+  respostaHTML: any;
 
   submitCreateUser(){
     var lUser = {
@@ -23,23 +24,19 @@ export class CreateComponent implements OnInit {
       senha: this.fsenha
     };
 
-    $('#respostaForm').html('<div class="alert alert-info" role="alert">Carregando...</div>');
-    this.userService.createUser(lUser).subscribe({
-      next(res) {
+    this.respostaHTML = '<div class="alert alert-info" role="alert">Carregando...</div>';
+    this.userService.createUser(lUser).subscribe( res => {
         if (res.ok == 1){
-          $('#respostaForm').html('<div class="alert alert-info" role="alert">OK: Usuario criado no banco de dados.</div>');
-          setTimeout(function(){ $('#respostaForm').html(''); }, 2000);
+          this.respostaHTML = '<div class="alert alert-info" role="alert">OK: Usuario criado no banco de dados.</div>';
+          setTimeout(function(){ this.respostaHTML = ''; }, 2000);
         }else{
-          $('#respostaForm').html('<div class="alert alert-info" role="alert">ERRO: '+res+'</div>');
-          setTimeout(function(){ $('#respostaForm').html(''); }, 2000);
+          this.respostaHTML = '<div class="alert alert-info" role="alert">ERRO: '+res+'</div>';
+          setTimeout(function(){ this.respostaHTML = ''; }, 2000);
         }
-      },
-      error(err) {
-        $('#respostaForm').html('<div class="alert alert-info" role="alert">ERRO: '+err+'</div>');
-        setTimeout(function(){ $('#respostaForm').html(''); }, 2000);
-      }
-
-    });
+       }, error =>{
+        this.respostaHTML = '<div class="alert alert-info" role="alert">ERRO: '+error+'</div>';
+        setTimeout(function(){ this.respostaHTML = ''; }, 2000);
+      });
   }
 
   ngOnInit() {

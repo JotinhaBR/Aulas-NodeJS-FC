@@ -11,8 +11,8 @@ import { UpComponent } from './itens/navbar/up/up.component';
 import { LeftComponent } from './itens/navbar/left/left.component';
 import { CreateComponent } from './pages/user/create/create.component';
 import { BuscarComponent } from './pages/user/buscar/buscar.component';
-import { DeletarComponent } from './pages/user/deletar/deletar.component';
 import { PerfilComponent } from './pages/user/perfil/perfil.component';
+import { RemoveComponent } from './pages/user/remove/remove.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +22,8 @@ import { PerfilComponent } from './pages/user/perfil/perfil.component';
     LeftComponent,
     CreateComponent,
     BuscarComponent,
-    DeletarComponent,
-    PerfilComponent
+    PerfilComponent,
+    RemoveComponent
   ],
   imports: [
     BrowserModule,

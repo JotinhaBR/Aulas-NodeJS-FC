@@ -1,7 +1,7 @@
 var config = require('../config');
 
 // fução para buscar dados em uma collection
-function buscar(cName, query = {}, database = config.mongodb.database) { 
+function buscar(cName, query, database = config.mongodb.database) { 
   return new Promise((resolve, reject)=>{
 
     var config = require('../config');
